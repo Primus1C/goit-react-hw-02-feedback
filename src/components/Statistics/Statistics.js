@@ -1,22 +1,33 @@
 import PropTypes from 'prop-types';
+import './Statistics.css';
 
 const Statistics = () => {
   return (
     <>
-      <h2>Please leave feedback</h2>
+      <h3>Please leave feedback</h3>
       <div className="Statistics__buttons">
-        <button>Good</button>
-        <button>Neutral</button>
-        <button>Bad</button>
+        <button type="button" className="Statistics__buttons__button">
+          Good
+        </button>
+        <button type="button" className="Statistics__buttons__button">
+          Neutral
+        </button>
+        <button type="button" className="Statistics__buttons__button">
+          Bad
+        </button>
       </div>
-      <h2>Statistics</h2>
-      <h3>Good:</h3>
-      <h3>Neutral:</h3>
-      <h3>Bad:</h3>
-      <h3>Total feedbacks:</h3>
-      <h3>Good geedbacks:</h3>
+      <h3>Statistics</h3>
+      <div>Good:</div>
+      <div>Neutral:</div>
+      <div>Bad:</div>
+      <div>Total feedbacks:</div>
+      <div>Good feedbacks: %</div>
     </>
   );
+};
+
+Statistics.propTypes = {
+  //friends: PropTypes.arrayOf(PropTypes.shape),
 };
 
 export default Statistics;
