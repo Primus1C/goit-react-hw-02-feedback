@@ -9,18 +9,28 @@ class Statistics extends React.Component {
     bad: 0,
   };
 
-  handleIncrement = (evt) => {
-    console.log(evt);
-    //this.setState(prevState => ({ point: prevState[point] + 1 }));
+  handleGood = () => {
+    this.setState(prevState => ({ good: prevState.good + 1 }));
   };
 
-  countTotalFeedback = () =>
-    this.state.good + this.state.neutral + this.state.bad;
+  handleNeutral = () => {
+    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
+  };
 
-  countPositiveFeedbackPercentage = () =>
-    (this.state.good / this.countTotalFeedback) * 100;
+  handleBad = () => {
+    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  };
+
+  countTotalFeedback = () => {
+    return this.state.good + this.state.neutral + this.state.bad
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+  };
 
   render() {
+    //const { good } = this.state.good;
     return (
       <>
         <h3>Please leave feedback</h3>
@@ -28,40 +38,40 @@ class Statistics extends React.Component {
           <button
             type="button"
             className="Statistics__buttons__button Statistics__buttons__button_good"
-            onClick={this.handleIncrement()}
+            onClick={this.handleGood}
           >
             Good
           </button>
           <button
             type="button"
             className="Statistics__buttons__button Statistics__buttons__button_neutral"
-            onClick={this.handleIncrement()}
+            onClick={this.handleNeutral}
           >
             Neutral
           </button>
           <button
             type="button"
             className="Statistics__buttons__button Statistics__buttons__button_bad"
-            onClick={this.handleIncrement()}
+            onClick={this.handleBad}
           >
             Bad
           </button>
         </div>
         <h3>Statistics</h3>
         <div>
-          Good: <span className="counterGood">{this.state.good}</span>
+          Good: <span>{this.state.good}</span>
         </div>
         <div>
-          Neutral: <span className="counterNeutral">{this.state.neutral}</span>
+          Neutral: <span>{this.state.neutral}</span>
         </div>
         <div>
-          Bad: <span className="counterBad">{this.state.bad}</span>
+          Bad: <span>{this.state.bad}</span>
         </div>
         <div>
-          Total feedbacks: <span className="counterTotal">0</span>
+          Total feedbacks: <span>{this.countTotalFeedback()}</span>
         </div>
         <div>
-          Good feedbacks: <span className="counterPercent">0</span>%
+          Good feedbacks: <span> {this.countPositiveFeedbackPercentage()}</span>%
         </div>
       </>
     );
@@ -69,7 +79,9 @@ class Statistics extends React.Component {
 }
 
 Statistics.propTypes = {
-  //friends: PropTypes.arrayOf(PropTypes.shape),
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
 };
 
 export default Statistics;
