@@ -30,7 +30,6 @@ class Statistics extends React.Component {
   };
 
   render() {
-    //const { good } = this.state.good;
     return (
       <>
         <h3>Please leave feedback</h3>
