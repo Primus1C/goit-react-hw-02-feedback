@@ -1,5 +1,5 @@
 import React from 'react';
-import Statistics from "./Statistics/Statistics";
+import Statistics from './Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 
 export class App extends React.Component {
@@ -9,7 +9,7 @@ export class App extends React.Component {
     bad: 0,
   };
 
-handleButton = e => {
+  handleButton = (e) => {
     //console.log(e.target.name);
     const n = e.target.name;
     //this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
@@ -18,8 +18,6 @@ handleButton = e => {
 
 
   render() {
-
-    //export const App = () => {
 
     return (
       <div
@@ -34,10 +32,11 @@ handleButton = e => {
           backgroundColor: '#E3D1C5'
         }}
       >
-        <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
-          onLeaveFeedback={this.handleButton}
-        />
+        
+      <FeedbackOptions
+        options={['good', 'neutral', 'bad']}
+        onLeaveFeedback={this.handleButton}
+      />
         
         
         <Statistics

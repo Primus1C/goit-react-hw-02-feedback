@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Statistics.css';
-import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
+//import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 
 function Statistics({ good, neutral, bad, total, positivePercentage }) {
   return (
@@ -50,12 +50,14 @@ function Statistics(props) {
   };
 */
 
+/*
 handleButton = e => {
   //console.log(e.target.name);
   const n = e.target.name;
   //this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
   this.setState(prevState => ({ [n]: prevState[n] + 1 }));
 };
+*/
 
 /*
   countTotalFeedback = () => {
