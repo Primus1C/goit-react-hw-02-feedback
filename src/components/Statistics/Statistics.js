@@ -1,21 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Statistics.css';
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 
-class Statistics extends React.Component {
+function Statistics({ good, neutral, bad, total, positivePercentage }) {
+  return (
+    <>
+      <h3>Statistics</h3>
+      <div>
+        Good: <span>{good}</span>
+      </div>
+      <div>
+        Neutral: <span>{neutral}</span>
+      </div>
+      <div>
+        Bad: <span>{bad}</span>
+      </div>
+      <div>
+        Total feedbacks: <span>{total}</span>
+      </div>
+      <div>
+        Good feedbacks: <span> {positivePercentage}</span>%
+      </div>
+    </>
+  );
+}
+
+/*
+function Statistics(props) {
+  //const options = ['good', 'neutral', 'bad'];
+  return (
+    <>
+      <h3>Please leave feedback</h3>
+      <FeedbackOptions
+        options={['good', 'neutral', 'bad']}
+        onLeaveFeedback={handleButton}
+      />
+    </>
+  );
+}
+*/
+
+/*
+ class Statistics extends React.Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
+*/
 
-  handleButton = e => {
-    //console.log(e.target.name);
-    const n = e.target.name;
-    //this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-    this.setState(prevState => ({ [n]: prevState[n] + 1 }));
-  };
+handleButton = e => {
+  //console.log(e.target.name);
+  const n = e.target.name;
+  //this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
+  this.setState(prevState => ({ [n]: prevState[n] + 1 }));
+};
 
+/*
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -75,11 +117,14 @@ class Statistics extends React.Component {
     );
   }
 }
+*/
 
 Statistics.propTypes = {
-  good: PropTypes.number,
-  neutral: PropTypes.number,
-  bad: PropTypes.number,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
 };
 
 export default Statistics;
