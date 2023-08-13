@@ -9,15 +9,11 @@ class Statistics extends React.Component {
     bad: 0,
   };
 
-  handleGood = () => {
-    this.setState(prevState => ({ good: prevState.good + 1 }));
-  };
-  handleNeutral = () => {
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  };
-
-  handleBad = () => {
-    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  handleButton = e => {
+    //console.log(e.target.name);
+    const n = e.target.name;
+    //this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
+    this.setState(prevState => ({ [n]: prevState[n] + 1 }));
   };
 
   countTotalFeedback = () => {
@@ -37,8 +33,7 @@ class Statistics extends React.Component {
             name="good"
             type="button"
             className="Statistics__buttons__button"
-            onClick={this.handleGood}
-            //onClick={this.handleButton}
+            onClick={this.handleButton}
           >
             Good
           </button>
@@ -46,8 +41,7 @@ class Statistics extends React.Component {
             name="neutral"
             type="button"
             className="Statistics__buttons__button"
-            onClick={this.handleNeutral}
-            //onClick={this.handleButton}
+            onClick={this.handleButton}
           >
             Neutral
           </button>
@@ -55,8 +49,7 @@ class Statistics extends React.Component {
             name="bad"
             type="button"
             className="Statistics__buttons__button"
-            onClick={this.handleBad}
-            //onClick={this.handleButton}
+            onClick={this.handleButton}
           >
             Bad
           </button>
