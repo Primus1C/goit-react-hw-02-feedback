@@ -12,7 +12,6 @@ class Statistics extends React.Component {
   handleGood = () => {
     this.setState(prevState => ({ good: prevState.good + 1 }));
   };
-
   handleNeutral = () => {
     this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
   };
@@ -22,7 +21,7 @@ class Statistics extends React.Component {
   };
 
   countTotalFeedback = () => {
-    return this.state.good + this.state.neutral + this.state.bad
+    return this.state.good + this.state.neutral + this.state.bad;
   };
 
   countPositiveFeedbackPercentage = () => {
@@ -35,23 +34,29 @@ class Statistics extends React.Component {
         <h3>Please leave feedback</h3>
         <div className="Statistics__buttons">
           <button
+            name="good"
             type="button"
-            className="Statistics__buttons__button Statistics__buttons__button_good"
+            className="Statistics__buttons__button"
             onClick={this.handleGood}
+            //onClick={this.handleButton}
           >
             Good
           </button>
           <button
+            name="neutral"
             type="button"
-            className="Statistics__buttons__button Statistics__buttons__button_neutral"
+            className="Statistics__buttons__button"
             onClick={this.handleNeutral}
+            //onClick={this.handleButton}
           >
             Neutral
           </button>
           <button
+            name="bad"
             type="button"
-            className="Statistics__buttons__button Statistics__buttons__button_bad"
+            className="Statistics__buttons__button"
             onClick={this.handleBad}
+            //onClick={this.handleButton}
           >
             Bad
           </button>
@@ -70,7 +75,8 @@ class Statistics extends React.Component {
           Total feedbacks: <span>{this.countTotalFeedback()}</span>
         </div>
         <div>
-          Good feedbacks: <span> {this.countPositiveFeedbackPercentage()}</span>%
+          Good feedbacks: <span> {this.countPositiveFeedbackPercentage()}</span>
+          %
         </div>
       </>
     );
