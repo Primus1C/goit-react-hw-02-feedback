@@ -1,3 +1,12 @@
-const message = 'There is no feedback';
+import React from 'react';
+import './Notification.css';
 
-export default message;
+const Notification = () => {
+    return (
+      <>
+        <div className="Notification"> There is no feedback</div>
+      </>
+    );
+};
+
+export default Notification;

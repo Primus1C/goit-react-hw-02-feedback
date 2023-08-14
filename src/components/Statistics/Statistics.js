@@ -6,7 +6,6 @@ import './Statistics.css';
 function Statistics({ good, neutral, bad, total, positivePercentage }) {
   return (
     <>
-      <h3>Statistics</h3>
       <div>
         Good: <span>{good}</span>
       </div>
